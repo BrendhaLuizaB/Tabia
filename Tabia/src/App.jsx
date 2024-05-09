@@ -1,13 +1,14 @@
+import Header from "./Components/organisms/Header/header"
 import { GlobalStyled } from "./GlobalStyles/GlobalStyles"
 
 function App() {
 
   return (
     <>
-     <GlobalStyled />
-      <h1>aaaaaaa</h1>
+      <GlobalStyled />
+      <Header />
     </>
-  )
+  );
 }
 
 export default App
