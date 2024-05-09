@@ -1,4 +1,5 @@
 import Header from "./Components/organisms/Header/header"
+import Home from "./Components/pages/Home/Home";
 import { GlobalStyled } from "./GlobalStyles/GlobalStyles"
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <>
       <GlobalStyled />
       <Header />
+      <Home />
     </>
   );
 }
