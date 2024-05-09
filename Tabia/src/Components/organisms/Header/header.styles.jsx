@@ -18,7 +18,6 @@ export const BoxMenuLogo = styled.div`
 export const BoxQuestionUserIcon = styled.div`
   display: flex;
   gap: 2rem;
-
 `
 
 export const HamburgerIcon = styled.i`
