@@ -1,0 +1,15 @@
+export const dataTags = [
+  { tagName: "Participation (%)", icon: "fa-solid fa-comment" },
+  { tagName: "eNPS", icon: "fa-solid fa-heart" },
+  { tagName: "Overall Engagement", icon: "fa-solid fa-chart-line" },
+  { tagName: "Recognition", icon: "fa-solid fa-trophy" },
+  { tagName: "Feedback", icon: "fa-solid fa-comment-dots" },
+  { tagName: "Relationship with Peers", icon: "fa-solid fa-people-group" },
+  { tagName: "Relationship with Manager", icon: "fa-solid fa-sitemap" },
+  { tagName: "Satisfaction", icon: "fa-solid fa-thumbs-up" },
+  { tagName: "Alignment", icon: "fa-solid fa-compass" },
+  { tagName: "Happiness", icon: "fa-solid fa-face-smile" },
+  { tagName: "Wellness", icon: "fa-solid fa-heart-circle-plus" },
+  { tagName: "Personal Growth", icon: "fa-solid fa-seedling" },
+  { tagName: "Ambassadorship", icon: "fa-solid fa-flag" },
+];

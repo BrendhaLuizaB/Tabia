@@ -1,10 +1,11 @@
+import { useGlobalContext } from "../../../Context/Global-context";
 import { BoxSection, ContainerMenu, IconMenu, TitleOfSection } from "./menu.styles";
 
-// eslint-disable-next-line react/prop-types
-const Menu = ({ showMenu }) => {
-
+const Menu = () => {
+    const {state} = useGlobalContext()
+    console.log(state)
     return (
-      <ContainerMenu showMenu={showMenu}>
+      <ContainerMenu showMenu={state.showMenu}>
         <BoxSection>
           <IconMenu className="fa-solid fa-house" />
           <TitleOfSection>Home</TitleOfSection>
