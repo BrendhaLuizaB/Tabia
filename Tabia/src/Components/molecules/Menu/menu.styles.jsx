@@ -3,13 +3,10 @@ import { theme } from "../../../Styles/theme";
 
 export const ContainerMenu = styled.aside`
   background-color: ${theme.interfaceColor.white.white_50};
-  position: fixed;
-  top: 7.5rem;
-  left: ${(props) => (props.showMenu === "-23rem" ? "0rem" : "-23rem")};
-  transition: left 1s;
-  z-index: -1;
+  transition: all 0.5s ease;
   min-height: 100%;
   padding: 2rem 10rem 0 2rem;
+  transform: translateX(${(props) => props.showMenu});
   box-shadow: rgba(0, 0, 0, 0.04) 3px 0px 5px;
 `;
 
@@ -29,4 +26,5 @@ export const IconMenu = styled.i`
   font-size: 2rem;
   color: ${theme.interfaceColor.black.black_400};
   font-weight: 900;
+  cursor: pointer;
 `;

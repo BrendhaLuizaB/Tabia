@@ -9,6 +9,7 @@ export const ContainerHeader = styled.header`
   padding: 2.5rem 3rem;
   box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
   position: relative;
+  z-index: 1;
 `;
 
 export const BoxMenuLogo = styled.div`
@@ -22,7 +23,7 @@ export const BoxQuestionUserIcon = styled.div`
 `;
 
 export const HamburgerIcon = styled.i`
-  color: ${(props) => (props.showMenu === "-23rem" ? `${theme.interfaceColor.blue.primary_blue}` : `${theme.interfaceColor.black.black_300}`)};
+  color: ${(props) => props.showMenu === "-100%" ? `${theme.interfaceColor.black.black_300}` : `${theme.interfaceColor.blue.primary_blue}`};
   font-size: 2.4rem;
 `;
 export const Logo = styled.h1`

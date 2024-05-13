@@ -1,22 +1,18 @@
-import { useRef } from "react";
-import Button from "../../atoms/Button/Button";
 import { ContainerMain } from "./Home.styles";
-import { useReactToPrint } from "react-to-print"
+import Table from "../../organisms/Table/table";
+import { useGlobalContext } from "../../../Context/Global-context";
+import Menu from "../../molecules/Menu/menu";
 
 const Home = () => {
-  const contentDocument = useRef();
+  const {state} = useGlobalContext()
 
-  const handlePrint = useReactToPrint({
-    content: () => contentDocument.current,
-  })
-
-  console.log(contentDocument)
+  console.log(state)
   return (
     <ContainerMain>
-      <div ref={contentDocument}>
-        <h1>Comparison</h1>
+      <Menu showMenu={state.showMenu} />
+      <div>
+      <Table />
       </div>
-      <Button handlePrint={handlePrint}/>
     </ContainerMain>
   );
 };
