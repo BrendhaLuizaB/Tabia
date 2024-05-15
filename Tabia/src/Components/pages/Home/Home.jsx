@@ -6,7 +6,6 @@ import Menu from "../../molecules/Menu/menu";
 const Home = () => {
   const {state} = useGlobalContext()
 
-  console.log(state)
   return (
     <ContainerMain>
       <Menu showMenu={state.showMenu} />
