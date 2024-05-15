@@ -21,32 +21,17 @@ import { dataTags } from "../../../data/DataTags/dataTags";
 import { BoxTitleButton } from "../../pages/Home/Home.styles";
 import Button from "../../atoms/Button/Button";
 import { useReactToPrint } from "react-to-print";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
+import { useCalculate } from "../../../hooks/Data-sum/teamData";
 
 const Table = () => {
   const contentDocument = useRef();
   const { dispatch, state } = useGlobalContext();
-  const [teamSumData, setTeamSumData] = useState([]);
-
-  const calculateRowSums = () => {
-    const sums = teamData.map((team) => {
-      const rowSum = Object.values(team)
-        .filter((value, index) => index > 3)
-        .reduce((acc, value) => acc + parseFloat(value), 0)
-        .toFixed(0);
-      return { ...team, sum: rowSum };
-    });
-    setTeamSumData(sums);
-  };
-
-  useEffect(() => {
-    calculateRowSums();
-  }, []);
+  const teamSumData = useCalculate()
 
   const handlePrint = useReactToPrint({
     content: () => contentDocument.current,
   });
-
   const handleTeams = () => {
     dispatch({
       type: "setShowTeams",
