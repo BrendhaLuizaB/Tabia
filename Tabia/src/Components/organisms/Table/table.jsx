@@ -49,11 +49,12 @@ const Table = () => {
   //       .filter((value, index) => index > 3)
   //       .reduce((acc, value) => acc + parseFloat(value), 0)
   //       .toFixed(0);
-  //     return rowSum;
+  //     return {teamId: team.id, sum: rowSum};
   //   });
   //   return sums;
   // };
 
+  
   // const rowSums2 = calculateRowSums2();
   // console.log("ROWSUMS2", rowSums2)
 
@@ -109,6 +110,7 @@ const Table = () => {
               <ContainerLine key={`${index}-${data.teamName}`}>
                 {Object.keys(data)
                   .slice(2)
+                  .slice(0, -1)
                   .map((key, index) => (
                     <Cells
                       key={`${index}-${data.id}`}
@@ -126,10 +128,11 @@ const Table = () => {
                       ) : (
                         <>{data[key]}</>
                       )} */}
+                      
 
-                       {((key === "NPS" || key === "participation") &&
-                         data.sum) ||
-                         (key !== "sum" && data[key])}
+                       {(key === "NPS" || key === "participation") &&
+                         data.sum ||
+                         data[key]}
                     </Cells>
                   ))}
               </ContainerLine>
