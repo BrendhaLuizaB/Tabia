@@ -43,21 +43,6 @@ const Table = () => {
     calculateRowSums();
   }, []);
 
-  // const calculateRowSums2 = () => {
-  //   const sums = teamData.map((team) => {
-  //     const rowSum = Object.values(team)
-  //       .filter((value, index) => index > 3)
-  //       .reduce((acc, value) => acc + parseFloat(value), 0)
-  //       .toFixed(0);
-  //     return {teamId: team.id, sum: rowSum};
-  //   });
-  //   return sums;
-  // };
-
-  
-  // const rowSums2 = calculateRowSums2();
-  // console.log("ROWSUMS2", rowSums2)
-
   const handlePrint = useReactToPrint({
     content: () => contentDocument.current,
   });
@@ -69,7 +54,6 @@ const Table = () => {
     });
   };
 
-  console.log(Object.values(teamSumData));
   return (
     <>
       <BoxTitleButton>
@@ -123,16 +107,9 @@ const Table = () => {
                         data.teamName === "Benchmarck (all industries)"
                       }
                     >
-                      {/* {key === "NPS" || key === "participation" ? (
-                        <>{rowSums2[index]}</>
-                      ) : (
-                        <>{data[key]}</>
-                      )} */}
-                      
-
-                       {(key === "NPS" || key === "participation") &&
-                         data.sum ||
-                         data[key]}
+                      {((key === "NPS" || key === "participation") &&
+                        data.sum) ||
+                        data[key]}
                     </Cells>
                   ))}
               </ContainerLine>

@@ -3,7 +3,6 @@ import { BoxSection, ContainerMenu, IconMenu, TitleOfSection } from "./menu.styl
 
 const Menu = () => {
     const {state} = useGlobalContext()
-    console.log(state)
     return (
       <ContainerMenu showMenu={state.showMenu}>
         <BoxSection>
