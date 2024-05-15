@@ -3,7 +3,6 @@ import { theme } from "../../../Styles/theme";
 
 export const ContainerTable = styled.div`
   background-color: ${theme.interfaceColor.white.white_50};
-  /* width: 99.2rem; */
 `;
 
 export const Divider = styled.div`
@@ -45,9 +44,9 @@ export const TeamsBox = styled.div`
 
 export const ContainerDataTable = styled.div`
   display: flex;
-  /* grid-template-columns: repeat(auto-fit, 35rem); */
   background-color: ${theme.interfaceColor.white.white_50};
   padding: 2rem 2rem;
+  margin-bottom: 3rem;
 `
 
 export const ContainerData = styled.div`
