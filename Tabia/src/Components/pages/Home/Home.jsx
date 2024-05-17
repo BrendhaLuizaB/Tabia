@@ -9,9 +9,7 @@ const Home = () => {
   return (
     <ContainerMain>
       <Menu showMenu={state.showMenu} />
-      <div>
       <Table />
-      </div>
     </ContainerMain>
   );
 };

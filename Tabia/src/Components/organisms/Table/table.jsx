@@ -1,19 +1,19 @@
 import {
   BoxTags,
-  BoxTeamName,
-  BoxTeamsTitle,
-  CaretIcon,
-  Cells,
-  ContainerData,
-  ContainerDataTable,
-  ContainerDataTags,
-  ContainerLine,
-  ContainerTags,
-  HeaderTeams,
   IconTags,
   TagsTitle,
-  TeamsBox,
-  TeamsName,
+  Cells,
+  ContainerLine,
+  ContainerDataTable,
+  BoxTeamName,
+  BoxTeamsTitle,
+  TeamsName, 
+  TeamsBox, 
+  HeaderTeams, 
+  CaretIcon,
+  ContainerDataTags,
+  ContainerTags,
+  ContainerData
 } from './table.styles'
 import teamData from '../../../data/TeamsData/teams_data.json'
 import { useGlobalContext } from '../../../Context/Global-context'
@@ -25,22 +25,16 @@ import { useRef } from 'react'
 import { useCalculate } from '../../../hooks/Data-sum/teamData'
 
 const Table = () => {
-  const contentDocument = useRef()
   const { dispatch, state } = useGlobalContext()
+  const contentDocument = useRef()
   const teamSumData = useCalculate()
 
   const handlePrint = useReactToPrint({
     content: () => contentDocument.current,
   })
-  const handleTeams = () => {
-    dispatch({
-      type: 'setShowTeams',
-      payload: state.showTeams === '-100%' ? '0' : '-100%',
-    })
-  }
-
+  
   return (
-    <>
+    <div style={{padding: '0 0 0 4rem'}}> 
       <BoxTitleButton>
         <div>
           <h1>Comparison</h1>
@@ -53,7 +47,7 @@ const Table = () => {
         <BoxTeamName>
           <BoxTeamsTitle>
             <HeaderTeams>Teams</HeaderTeams>
-            <CaretIcon className='fa-solid fa-caret-up' onClick={handleTeams} />
+            <CaretIcon className='fa-solid fa-caret-up' />
           </BoxTeamsTitle>
           {teamData.map((team, index) => {
             return (
@@ -102,7 +96,7 @@ const Table = () => {
           </ContainerData>
         </ContainerDataTags>
       </ContainerDataTable>
-    </>
+    </div>
   )
 }
 

@@ -8,5 +8,4 @@ export const BoxTitleButton = styled.div`
 
 export const ContainerMain = styled.main`
     display: flex;
-    /* justify-content: center; */
 `

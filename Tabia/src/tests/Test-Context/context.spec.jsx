@@ -1,50 +1,56 @@
-import { render, act, renderHook } from "@testing-library/react";
+import { render, act, renderHook, fireEvent } from '@testing-library/react'
 import {
   GlobalContext,
+  GlobalReducer,
   initialState,
   useGlobalContext,
-} from "../../Context/Global-context";
+} from '../../Context/Global-context'
+import { useReducer } from 'react'
 
-describe("GlobalContext", () => {
-  it("should provide the initial state", () => {
-    const { getByText } = render(
+describe('GlobalContext', () => {
+  const Wrapper = ({ children }) => {
+    const [state, dispatch] = useReducer(GlobalReducer, initialState)
+    return (
+      <GlobalContext.Provider value={{ state, dispatch }}>
+        {children}
+      </GlobalContext.Provider>
+    )
+  }
+  it('should provide the initial state', () => {
+    const { queryByText } = render(
       <GlobalContext.Provider
         value={{ state: initialState, dispatch: () => {} }}
       >
         <TestComponent />
       </GlobalContext.Provider>
-    );
+    )
 
-    expect(getByText(`showMenu: ${initialState.showMenu}`)).toBeInTheDocument();
     expect(
-      getByText(`showTeams: ${initialState.showTeams}`)
-    ).toBeInTheDocument();
-  });
+      queryByText((content, element) =>
+        content.includes(`showMenu: ${initialState.showMenu}`)
+      )
+    ).toBeInTheDocument()
+  })
 
-  it("should update state when dispatch is called", () => {
-    const { result } = renderHook(() => useGlobalContext());
-
-    act(() => {
-      result.current.dispatch({ type: "setShowMenu", payload: "50%" });
-    });
-
-    expect(result.current.state.showMenu).toBe("-100%");
+  it('should update state when dispatch is called', () => {
+    const { result } = renderHook(() => useGlobalContext(), {
+      wrapper: Wrapper,
+    })
 
     act(() => {
-      result.current.dispatch({ type: "setShowTeams", payload: "0%" });
-    });
+      result.current.dispatch({ type: 'setShowMenu', payload: true })
+    })
 
-    expect(result.current.state.showTeams).toBe("-100%");
-  });
-});
+    expect(result.current.state.showMenu).toBe(true)
+  })
+})
 
 function TestComponent() {
-  const { state } = useGlobalContext();
+  const { state } = useGlobalContext()
 
   return (
     <div>
-      <div>showMenu: {state.showMenu}</div>
-      <div>showTeams: {state.showTeams}</div>
+      <div>showMenu: {state.showMenu.toString()}</div>
     </div>
-  );
+  )
 }
