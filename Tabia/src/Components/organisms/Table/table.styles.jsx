@@ -1,14 +1,6 @@
 import styled from "styled-components";
 import { theme } from "../../../Styles/theme";
 
-export const ContainerTable = styled.div`
-  background-color: ${theme.interfaceColor.white.white_50};
-`;
-
-export const Divider = styled.div`
-  border-bottom: 0.1rem solid ${theme.interfaceColor.white.white_300};
-  padding: 4rem 0;
-`;
 
 export const HeaderTeams = styled.p`
   font-size: 1.4rem;
@@ -31,8 +23,10 @@ export const CaretIcon = styled.i`
 `
 
 export const TeamsName = styled.p`
-    font-size: 1.4rem;
-    font-weight: ${(props) => (props.team.id === 0 || props.team.id === 1) ? 600 : 'normal'};
+  font-size: 1.4rem;
+  font-weight: ${(props) =>
+    props.team.id === 0 || props.team.id === 1 ? 600 : 'normal'};
+
 `
 
 export const TeamsBox = styled.div`
@@ -40,13 +34,31 @@ export const TeamsBox = styled.div`
   border: 0.1rem solid ${theme.interfaceColor.white.white_300};
   background-color: ${(props) =>
     props.team.id === 0 && `${theme.interfaceColor.white.white_300}`};
-`;
+
+  @media screen and (width < 1400px) {
+    display: flex;
+    align-items: flex-end;
+
+  }
+`
 
 export const ContainerDataTable = styled.div`
   display: flex;
   background-color: ${theme.interfaceColor.white.white_50};
   padding: 2rem 2rem;
   margin-bottom: 3rem;
+  overflow-x: auto;
+
+  @media screen and (max-width: 1400px) {
+    width: 100%;
+    max-width: 600px;
+    white-space: nowrap; 
+  }
+  @media screen and (max-width: 665px) {
+    width: 100%;
+    max-width: 30rem; 
+    white-space: nowrap; 
+  }
 `
 
 export const ContainerData = styled.div`
@@ -70,7 +82,6 @@ export const BoxTags = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
-
 `
 export const IconTags = styled.i`
   font-size: 1.4rem;
@@ -78,13 +89,13 @@ export const IconTags = styled.i`
   color: ${theme.interfaceColor.black.black_200};
   transform: rotate(180deg);
 `
-export const ContainerLine = styled.ul`
+export const ContainerLine = styled.div`
   width: 100%;
   display: flex;
   gap: 0.4rem;
 
 `
-export const Cells = styled.li`
+export const Cells = styled.div`
   width: 45.54px;
   border: 1px 0px 0px 0px;
   list-style: none;
@@ -120,6 +131,7 @@ export const BoxTeamName = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
+
 `
 
 export const ContainerTags = styled.div`

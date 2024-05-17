@@ -6,7 +6,7 @@ const Header = () => {
     const {dispatch, state} = useGlobalContext()
 
     const handleMenu = () => {
-        dispatch({type: "setShowMenu", payload: state.showMenu === '-100%' ? '0' : '-100%'});
+        dispatch({type: "setShowMenu", payload: !state.showMenu});
     }
   return (
     <>
@@ -14,7 +14,7 @@ const Header = () => {
         <BoxMenuLogo>
           <HamburgerIcon
             className="fa-solid fa-bars"
-            onClick={() => handleMenu()}
+            onClick={handleMenu}
             showMenu={state.showMenu}
           />
           <Logo>ãcme</Logo>
