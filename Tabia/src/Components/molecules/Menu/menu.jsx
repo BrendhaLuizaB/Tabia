@@ -1,28 +1,52 @@
 import { useGlobalContext } from "../../../Context/Global-context";
-import { BoxSection, ContainerMenu, IconMenu, TitleOfSection } from "./menu.styles";
+import { BoxSection, ContainerMenu, IconMenu, Options, TitleOfSection } from "./menu.styles";
 
 const Menu = () => {
+
+  const menuData = [
+    {
+      Title: 'Home',
+      Icon: 'fa-solid fa-house',
+    },
+    {
+      Title: 'Analysis',
+      Icon: 'fa-solid fa-chart-line',
+      Survey: 'Survey report', 
+      Comparison: 'Comparison', 
+      Custom: 'Custom polls'
+    },
+
+    {
+      Title: 'Feedback',
+      Icon: 'fa-solid fa-comment',
+    },
+
+    { Title: 'Goals', Icon: 'fa-solid fa-bullseye' },
+  ]
+
+  console.log(menuData)
     const {state} = useGlobalContext()
     return (
-      <ContainerMenu showMenu={state.showMenu}>
-        <BoxSection>
-          <IconMenu className="fa-solid fa-house" />
-          <TitleOfSection>Home</TitleOfSection>
-        </BoxSection>
-        <BoxSection>
-          <IconMenu className="fa-solid fa-chart-line" />
-          <TitleOfSection>Analysis</TitleOfSection>
-        </BoxSection>
-        <BoxSection>
-          <IconMenu className="fa-solid fa-comment" />
-          <TitleOfSection>Feedback</TitleOfSection>
-        </BoxSection>
-        <BoxSection>
-          <IconMenu className="fa-solid fa-bullseye" />
-          <TitleOfSection>Goals</TitleOfSection>
-        </BoxSection>
-      </ContainerMenu>
-    );
+      <ContainerMenu showmenu={state.showMenu}>
+      {menuData.map((item, index) => {
+        return (
+          <BoxSection key={index}>
+            <IconMenu className={item.Icon} />
+            <div>
+              <TitleOfSection>{item.Title}</TitleOfSection>
+              {item.Title === 'Analysis' && (
+                <>
+                  <Options>{item.Survey}</Options>
+                  <Options isComparison>{item.Comparison}</Options>
+                  <Options>{item.Custom}</Options>
+                </>
+              )}
+            </div>
+          </BoxSection>
+        )
+      })}
+    </ContainerMenu>
+    )
 }
 
 export default Menu;

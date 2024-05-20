@@ -106,9 +106,9 @@ export const Cells = styled.div`
   font-weight: 600;
   padding: 1.6rem 0.7rem;
   background-color: ${(props) => {
-    if (props.isFirstColumn && props.data.id !== 0 ) {
+    if (props.isfirstcolumn && props.data.id !== 0 ) {
       return `${theme.interfaceColor.white.white_50}`;
-    } else if (props.isFirstLine) {
+    } else if (props.data.teamName === 'Benchmarck (all industries)') {
       return `${theme.interfaceColor.white.white_300}`;
     } else {
       switch (true) {

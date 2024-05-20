@@ -34,7 +34,7 @@ const Table = () => {
   })
   
   return (
-    <div style={{padding: '0 0 0 4rem'}}> 
+    <div style={{ padding: '0 0 0 4rem' }}>
       <BoxTitleButton>
         <div>
           <h1>Comparison</h1>
@@ -79,11 +79,8 @@ const Table = () => {
                       key={`${index}-${data.id}`}
                       score={data[key]}
                       data={data}
-                      isFirstColumn={
+                      isfirstcolumn={
                         index === 0 || (index === 1 && data.id !== 0)
-                      }
-                      isFirstLine={
-                        data.teamName === 'Benchmarck (all industries)'
                       }
                     >
                       {((key === 'NPS' || key === 'participation') &&

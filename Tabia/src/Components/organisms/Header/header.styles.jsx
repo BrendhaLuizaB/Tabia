@@ -23,7 +23,7 @@ export const BoxQuestionUserIcon = styled.div`
 `;
 
 export const HamburgerIcon = styled.i`
-  color: ${(props) => !props.showMenu ? `${theme.interfaceColor.black.black_300}` : `${theme.interfaceColor.blue.primary_blue}`};
+  color: ${(props) => !props.showmenu ? `${theme.interfaceColor.black.black_300}` : `${theme.interfaceColor.blue.primary_blue}`};
   font-size: 2.4rem;
 `;
 export const Logo = styled.h1`
@@ -35,3 +35,8 @@ export const QuestionMarkIcon = styled.i`
   font-size: 2.4rem;
   color: ${theme.interfaceColor.black.black_300};
 `;
+
+export const ProfilePic = styled.img`
+  width: 3rem;
+  height: 3rem;
+`

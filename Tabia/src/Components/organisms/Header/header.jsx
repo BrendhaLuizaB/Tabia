@@ -1,4 +1,4 @@
-import { BoxMenuLogo, BoxQuestionUserIcon, ContainerHeader, HamburgerIcon, Logo, QuestionMarkIcon } from "./header.styles";
+import { BoxMenuLogo, BoxQuestionUserIcon, ContainerHeader, HamburgerIcon, Logo, ProfilePic, QuestionMarkIcon } from "./header.styles";
 import profile from '../../../assets/img/profile-pic.svg'
 import { useGlobalContext } from "../../../Context/Global-context";
 
@@ -15,13 +15,13 @@ const Header = () => {
           <HamburgerIcon
             className="fa-solid fa-bars"
             onClick={handleMenu}
-            showMenu={state.showMenu}
+            showmenu={state.showMenu}
           />
           <Logo>ãcme</Logo>
         </BoxMenuLogo>
         <BoxQuestionUserIcon>
           <QuestionMarkIcon className="fa-regular fa-circle-question" />
-          <img src={profile} alt="User profile image" />
+          <ProfilePic src={profile} alt="User profile image" />
         </BoxQuestionUserIcon>
       </ContainerHeader>
     </>

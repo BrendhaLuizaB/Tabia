@@ -8,7 +8,7 @@ const Home = () => {
 
   return (
     <ContainerMain>
-      <Menu showMenu={state.showMenu} />
+      <Menu showmenu={state.showMenu} />
       <Table />
     </ContainerMain>
   );
