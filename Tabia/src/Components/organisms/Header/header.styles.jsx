@@ -7,7 +7,9 @@ export const ContainerHeader = styled.header`
   background-color: ${theme.interfaceColor.white.white_50};
   align-items: center;
   padding: 2.5rem 3rem;
-  box-shadow:rgba(0, 0, 0, 0.04) 0px 3px 5px;;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+  position: relative;
+  z-index: 1;
 `;
 
 export const BoxMenuLogo = styled.div`
@@ -18,18 +20,23 @@ export const BoxMenuLogo = styled.div`
 export const BoxQuestionUserIcon = styled.div`
   display: flex;
   gap: 2rem;
-`
+`;
 
 export const HamburgerIcon = styled.i`
-    color: ${theme.interfaceColor.black.black_300};
-    font-size: 2.4rem;
-`
+  color: ${(props) => !props.showmenu ? `${theme.interfaceColor.black.black_300}` : `${theme.interfaceColor.blue.primary_blue}`};
+  font-size: 2.4rem;
+`;
 export const Logo = styled.h1`
-    font-size: 2rem;
-    font-weight: 600;
-    color: ${theme.interfaceColor.blue.primary_blue};
-`
+  font-size: 2rem;
+  font-weight: 600;
+  color: ${theme.interfaceColor.blue.primary_blue};
+`;
 export const QuestionMarkIcon = styled.i`
-    font-size: 2.4rem;
-    color: ${theme.interfaceColor.black.black_300};
+  font-size: 2.4rem;
+  color: ${theme.interfaceColor.black.black_300};
+`;
+
+export const ProfilePic = styled.img`
+  width: 3rem;
+  height: 3rem;
 `
